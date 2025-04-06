@@ -2,6 +2,8 @@ import matplotlib.pyplot as plt
 import numpy as np
 import seaborn as sns
 from sklearn.metrics import confusion_matrix
+from torchsummary import summary
+
 
 def plotLoss(trainLosses, valLosses):
     plt.figure(figsize=(10, 5))
@@ -84,3 +86,7 @@ def plotMultiLoss(trainLosses, valLosses, modelNames):
     plt.grid(True)
     plt.show()
 
+def computationalComplexity(model, input_size):
+    # Assuming the model is a PyTorch model
+    model = summary(model, input_size=input_size)
+    print(model)
